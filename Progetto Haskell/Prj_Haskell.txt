@@ -1,0 +1,26 @@
+-- Somma dei quadrati dei primi n numeri naturali usando list comprehension
+sumOfSquares :: Int -> Int
+sumOfSquares n = sum [x * x | x <- [1..n]]
+
+-- Funzione di ordine superiore: Applica una funzione a ciascun elemento dell'intervallo
+applyToRange :: (Int -> Int) -> Int -> Int -> [Int]
+applyToRange f start end = map f [start..end]
+
+-- Funzione anonima (lambda): Raddoppia ciascun elemento di una lista
+doubleList :: [Int] -> [Int]
+doubleList xs = map (\x -> x * 2) xs
+
+-- Funzione principale
+main :: IO ()
+main = do
+  -- Somma dei quadrati dei primi dieci numeri naturali
+  let result1 = sumOfSquares 10
+  putStrLn $ "La somma dei quadrati dei primi dieci numeri naturali è: " ++ show result1
+
+  -- Applica la funzione (\x -> x * 3) ai numeri da 1 a 5
+  let result2 = applyToRange (\x -> x * 3) 1 5
+  putStrLn $ "Applicazione di una funzione a ciascun elemento dell'intervallo (x * 3): " ++ show result2
+
+  -- Raddoppia ciascun elemento di una lista
+  let result3 = doubleList [1, 2, 3, 4, 5]
+  putStrLn $ "Raddoppio ciascun elemento della lista: " ++ show result3
